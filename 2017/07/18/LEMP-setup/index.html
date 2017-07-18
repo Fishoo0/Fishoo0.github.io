@@ -12,13 +12,13 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/18/LEMP-setup/index.html">
 <meta property="og:site_name" content="Fish&#39;s Blog">
 <meta property="og:description" content="#Points:1,Install softwares2,configure softwares ,including php ,rtmp    UBUNTU 14.04 for example ##Installing softwaresnginx &amp;amp; php &amp;amp; rtmp &amp;amp; mysql ####install nginx        一共有两种方式安装nginx，">
-<meta property="og:image" content="http://yoursite.com/2017/07/18/LEMP-setup/LEMP-setup/phpset.png">
-<meta property="og:image" content="http://yoursite.com/2017/07/18/LEMP-setup/LEMP-setup/rtmpset.png">
-<meta property="og:updated_time" content="2017-07-18T09:59:22.000Z">
+<meta property="og:image" content="http://yoursite.com/images/phpset.png">
+<meta property="og:image" content="http://yoursite.com/images/rtmpset.png">
+<meta property="og:updated_time" content="2017-07-18T10:21:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LEMP setup">
 <meta name="twitter:description" content="#Points:1,Install softwares2,configure softwares ,including php ,rtmp    UBUNTU 14.04 for example ##Installing softwaresnginx &amp;amp; php &amp;amp; rtmp &amp;amp; mysql ####install nginx        一共有两种方式安装nginx，">
-<meta name="twitter:image" content="http://yoursite.com/2017/07/18/LEMP-setup/LEMP-setup/phpset.png">
+<meta name="twitter:image" content="http://yoursite.com/images/phpset.png">
     
     
         
@@ -183,14 +183,16 @@ FAQ: find your user/group ?
 access_log logs/access.log;
 </code></pre><p>默认配置文件把日志注释掉了，去掉#号，打开即可  </p>
 <p>1，php的设置,下面贴图示例：  </p>
-<p><img src="LEMP-setup/phpset.png" alt=""><br>    其实打开配置文件，默认注释掉了php相关部分，只要我们把注解打开，做微量的调整即可。本人做的调整有</p>
-<pre><code>1，netstatus -a //找到自己的php-fpm的端口
-2，fastcgi_pass unix:/run/php/php7.1-fpm.sock  //这里填入上面的端口，不同PHP版本，有所差异
+<p><img src="/images/phpset.png" alt=""></p>
+<pre><code>其实打开配置文件，默认注释掉了php相关部分，只要我们把注解打开，做微量的调整即可。本人做的调整有
+
+    1，netstatus -a //找到自己的php-fpm的端口
+    2，fastcgi_pass unix:/run/php/php7.1-fpm.sock  //这里填入上面的端口，不同PHP版本，有所差异
 </code></pre><p>和</p>
 <pre><code>fastcgi_param SCRIPT_FILENAME xxxx$fastcgi_script_name //将xxx换成自己的php目录    
 </code></pre><p>上面提到php的权限问题，就是这里的unix sock端口。php7之后做了安全保护，默认没有权限访问，如果不做设置，就会包权限错误。好像还可以使用本地127.0.0.1:9000端口，但是测试失败。</p>
 <p>2，rtmp的设置<br>这里官方GIT提供了更为详尽的教程，这里只贴出本人配置：</p>
-<p><img src="LEMP-setup/rtmpset.png" alt=""></p>
+<p><img src="/images/rtmpset.png" alt=""></p>
 <p>推流／拉流的时候，对应地址为 your_url:1935/fish/your_live_room_name_by_your_own_will</p>
 <p>#参考<br><a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04" target="_blank" rel="external">很简洁的一个教程，赞</a><br><a href="http://nginx.org/" target="_blank" rel="external">nginx官网</a><br><a href="https://github.com/arut/nginx-rtmp-module" target="_blank" rel="external">rtmp官方Git</a><br><a href="https://www.vultr.com/docs/setup-nginx-rtmp-on-ubuntu-14-04" target="_blank" rel="external">rtmp安装指南from VULTR</a><br><a href=""></a>    </p>
 <p><a href="https://stackoverflow.com/questions/23443398/nginx-error-connect-to-php5-fpm-sock-failed-13-permission-denied" target="_blank" rel="external">php权限错误的问题</a>    </p>
