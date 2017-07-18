@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="#Points:1,Install softwares2,configure softwares ,including php ,rtmp    UBUNTU 14.04 for example ##Installing softwaresnginx &amp;amp; php &amp;amp; rtmp &amp;amp; mysql ####install nginx        一共有两种方式安装nginx，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LEMP setup">
+<meta property="og:url" content="http://yoursite.com/2017/07/18/LEMP-setup/index.html">
+<meta property="og:site_name" content="Fish&#39;s Blog">
+<meta property="og:description" content="#Points:1,Install softwares2,configure softwares ,including php ,rtmp    UBUNTU 14.04 for example ##Installing softwaresnginx &amp;amp; php &amp;amp; rtmp &amp;amp; mysql ####install nginx        一共有两种方式安装nginx，">
+<meta property="og:image" content="http://yoursite.com/2017/07/18/LEMP-setup/LEMP-setup/phpset.png">
+<meta property="og:image" content="http://yoursite.com/2017/07/18/LEMP-setup/LEMP-setup/rtmpset.png">
+<meta property="og:updated_time" content="2017-07-18T09:59:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LEMP setup">
+<meta name="twitter:description" content="#Points:1,Install softwares2,configure softwares ,including php ,rtmp    UBUNTU 14.04 for example ##Installing softwaresnginx &amp;amp; php &amp;amp; rtmp &amp;amp; mysql ####install nginx        一共有两种方式安装nginx，">
+<meta name="twitter:image" content="http://yoursite.com/2017/07/18/LEMP-setup/LEMP-setup/phpset.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>LEMP setup</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/probberechts">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2017/07/12/hello-world/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2017/07/18/LEMP-setup/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2017/07/18/LEMP-setup/&text=LEMP setup"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2017/07/18/LEMP-setup/&is_video=false&description=LEMP setup"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=LEMP setup&body=Check out this article: http://yoursite.com/2017/07/18/LEMP-setup/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2017/07/18/LEMP-setup/&name=LEMP setup&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UBUNTU-14-04-for-example"><span class="toc-number">1.</span> <span class="toc-text">UBUNTU 14.04 for example</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#install-mysql"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">install mysql</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        LEMP setup
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Fish's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-07-18T04:39:00.000Z" itemprop="datePublished">2017-07-18</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>#Points:<br>1,Install softwares<br>2,configure softwares ,including php ,rtmp  </p>
+<hr>
+<h1 id="UBUNTU-14-04-for-example"><a href="#UBUNTU-14-04-for-example" class="headerlink" title="UBUNTU 14.04 for example"></a>UBUNTU 14.04 for example</h1><hr>
+<p>##Installing softwares<br>nginx &amp; php &amp; rtmp &amp; mysql</p>
+<p>####install nginx<br>        一共有两种方式安装nginx，<br>        a，apt-get install nginx<br>        b，从源代码安装</p>
+<p>因为我们需要支持rtmp模块，所以必须从源代码安装，下面主要讲解这种方式的安装,命令如下(可能需要root权限)：</p>
+<pre><code>1, wget http://nginx.org/download/nginx-1.7.5.tar.gz  //downloading nginx source code
+2, wget https://github.com/arut/nginx-rtmp-module/archive/master.zip  //downloading rtmp module
+3, tar -zxvf nginx-1.7.5.tar.gz &amp; unzip master.zip  //unzip/unrar all files
+4, ./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master  //configure
+5, make &amp; make install 
+</code></pre><p>上面是一个标准的源代码软件安装方式，nginx可以从<a href="http://nginx.org/en/download.html" target="_blank" rel="external">官网</a>下载最新的代码 ,rtmp模块的可以参考<a href="https://github.com/arut/nginx-rtmp-module" target="_blank" rel="external">官方GIT</a>。   </p>
+<p>增加nginx服务启动方式：</p>
+<pre><code>sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
+sudo chmod +x /etc/init.d/nginx
+sudo update-rc.d nginx defaults
+</code></pre><p>上述设置完毕后，我们就可以已服务的方式启动nginx：</p>
+<pre><code>service nginx start //开启
+service nginx stop //关闭，也可以 killall nginx
+service nginx restart  //重启服务
+</code></pre><p>####install php<br>安装php可以直接从apt源安装，如果缺少源，自己Google下获取   </p>
+<pre><code>sudo apt-get install php-fpm php-mysql 
+</code></pre><p>可能需要添加源：</p>
+<pre><code>sudo apt-add-repository ppa:ondrej/php &amp; sudo apt-get update
+</code></pre><h4 id="install-mysql"><a href="#install-mysql" class="headerlink" title="install mysql"></a>install mysql</h4><p>安装数据库</p>
+<pre><code>sudo apt-get install mysql-server &amp; sudo mysql_secure_installation
+</code></pre><p>后面主要是给数据库设置密码。</p>
+<p>##Configure<br>下面主要介绍配置php和rtmp</p>
+<p>###php的配置<br>php本身需要配置的其实不是必须的，因为理解还不透彻，只介绍两个配置点：</p>
+<pre><code>1，unix://run/php/php7.1-fpm.sock 的权限问题，从php7.0之后需要，不设置访问php可能访问不到
+2，cgi.fix_pathinfo=0  在 /etc/php/7.0/fpm/php.ini 文件中，保证前面参数设置得当
+</code></pre><p>1，权限问题，php增强了sock文件访问的权限，需要我们在相关文件做以下配置：</p>
+<pre><code>/etc/php/7.0/fpm/pool.d/www.conf
+
+listen.owner = www-data -&gt; your owner,for example: nobody
+listen.group = www-data -&gt; your group,for example: root
+listen.mode = 0660
+
+FAQ: find your user/group ?
+    ps aux | grep nginx 
+</code></pre><p>2，设置结束后，需要重新启动php服务：</p>
+<pre><code>service php7.1-fpm restart
+</code></pre><p>###nginx的配置<br>我们需要正确设置nginx，才能够帅nginx正确访问访问php和rtmp服务器，下面仅仅介绍最简单的设置。<br>设置文件所在目录为  </p>
+<pre><code>/usr/local/nginx/conf/nignx.config 
+</code></pre><p>如果从apt-get安装，目录可能不同，参考 </p>
+<pre><code>/etc/nginx/sites-available/default
+</code></pre><p>为了跟踪错误，建议打开日志</p>
+<pre><code>error_log logs/error_all.log warn;
+access_log logs/access.log;
+</code></pre><p>默认配置文件把日志注释掉了，去掉#号，打开即可  </p>
+<p>1，php的设置,下面贴图示例：  </p>
+<p><img src="LEMP-setup/phpset.png" alt=""><br>    其实打开配置文件，默认注释掉了php相关部分，只要我们把注解打开，做微量的调整即可。本人做的调整有</p>
+<pre><code>1，netstatus -a //找到自己的php-fpm的端口
+2，fastcgi_pass unix:/run/php/php7.1-fpm.sock  //这里填入上面的端口，不同PHP版本，有所差异
+</code></pre><p>和</p>
+<pre><code>fastcgi_param SCRIPT_FILENAME xxxx$fastcgi_script_name //将xxx换成自己的php目录    
+</code></pre><p>上面提到php的权限问题，就是这里的unix sock端口。php7之后做了安全保护，默认没有权限访问，如果不做设置，就会包权限错误。好像还可以使用本地127.0.0.1:9000端口，但是测试失败。</p>
+<p>2，rtmp的设置<br>这里官方GIT提供了更为详尽的教程，这里只贴出本人配置：</p>
+<p><img src="LEMP-setup/rtmpset.png" alt=""></p>
+<p>推流／拉流的时候，对应地址为 your_url:1935/fish/your_live_room_name_by_your_own_will</p>
+<p>#参考<br><a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04" target="_blank" rel="external">很简洁的一个教程，赞</a><br><a href="http://nginx.org/" target="_blank" rel="external">nginx官网</a><br><a href="https://github.com/arut/nginx-rtmp-module" target="_blank" rel="external">rtmp官方Git</a><br><a href="https://www.vultr.com/docs/setup-nginx-rtmp-on-ubuntu-14-04" target="_blank" rel="external">rtmp安装指南from VULTR</a><br><a href=""></a>    </p>
+<p><a href="https://stackoverflow.com/questions/23443398/nginx-error-connect-to-php5-fpm-sock-failed-13-permission-denied" target="_blank" rel="external">php权限错误的问题</a>    </p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/probberechts">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UBUNTU-14-04-for-example"><span class="toc-number">1.</span> <span class="toc-text">UBUNTU 14.04 for example</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#install-mysql"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">install mysql</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2017/07/18/LEMP-setup/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2017/07/18/LEMP-setup/&text=LEMP setup"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2017/07/18/LEMP-setup/&is_video=false&description=LEMP setup"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=LEMP setup&body=Check out this article: http://yoursite.com/2017/07/18/LEMP-setup/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2017/07/18/LEMP-setup/&title=LEMP setup"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2017/07/18/LEMP-setup/&name=LEMP setup&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 Fish
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/probberechts">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
